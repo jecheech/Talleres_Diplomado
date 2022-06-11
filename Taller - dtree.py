@@ -32,9 +32,17 @@ features = ["CompPrice","Income","Advertising", "Population","Price","ShelveLoc"
 X = datos[features]
 y = datos["ventas_altas"]
 
+x_train = X[:320]
+y_train = y[:320]
+
+x_test = X[320:]
+y_test = y[320:]
 
 dtree = DecisionTreeClassifier()
-dtree  = dtree.fit(X, y)
+dtree  = dtree.fit(x_train, y_train)
+
+prediction = dtree.predict([[136,70,12,171,152,1,44,18,1,1]])
+
 data = tree.export_graphviz(dtree, out_file = None, feature_names= features)
 graph = pydotplus.graph_from_dot_data(data)
 graph.write_png('mydecisiontree.png')
