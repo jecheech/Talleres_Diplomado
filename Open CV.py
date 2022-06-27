@@ -37,4 +37,4 @@ imgGrisesRecortada.shape
 fig, axs = plt.subplots(2)
 fig.suptitle('Imagenes recortadas')
 axs[0].imshow(imgColorRecortada)
-axs[1].imshow(imgGrisesRecortada)
+axs[1].imshow(imgGrisesRecortada, cmap='gray')
