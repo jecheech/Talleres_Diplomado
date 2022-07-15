@@ -9,8 +9,7 @@ from skimage import io
 from scipy import ndimage
 import numpy as np
 import matplotlib.pyplot as plt
-from PIL import Image
-import math
+
 
 
 #1) Cargar una imagen rgb o escala de grises
@@ -24,7 +23,6 @@ imgCortada = img[lx//4:-lx//4, ly//4:-ly//4]
 plt.imshow(imgCortada, cmap='gray')
 
 #3) Agregar elementos a la imagen
-
 imgElementos = img
 X,Y = np.ogrid[0:lx, 0:ly]
 # Se crean los elementos a agregar
@@ -87,6 +85,43 @@ plt.axis("off")
 
 #5) usar los ajustes del subplot y el figsize para mejorar la calidad 
 
-plt.figure(figsize=(12.5, 2.5), facecolor="c")
+fig = plt.figure(figsize=(12.5, 2.5), facecolor="c")
+
+fig.suptitle("Hola", x= 0.5, y=0.5, fontsize=100,
+             fontstyle="normal", fontfamily="fantasy", color="gray",
+             backgroundcolor= "blue", rotation=10)
+
+plt.subplot(241)
+plt.imshow(img, cmap=plt.cm.gray)
+plt.axis("off")
+
+plt.subplot(242)
+plt.imshow(imgCortada, cmap=plt.cm.gray)
+plt.axis("off")
+
+plt.subplot(243)
+plt.imshow(imgElementos, cmap=plt.cm.gray)
+plt.axis("off")
+
+plt.subplot(244)
+plt.imshow(imgElementosflipup, cmap=plt.cm.gray)
+plt.axis("off")
+
+plt.subplot(245)
+plt.imshow(imgElementosfliplr, cmap=plt.cm.gray)
+plt.axis("off")
+
+plt.subplot(246)
+plt.imshow(imgElementosflip, cmap=plt.cm.gray)
+plt.axis("off")
+
+plt.subplot(247)
+plt.imshow(imgRotada, cmap=plt.cm.gray)
+plt.axis("off")
+
+plt.subplot(248)
+plt.imshow(imgRotada2, cmap=plt.cm.gray)
+plt.axis("off")
+
 
 plt.subplots_adjust(wspace=0.05, hspace=0.3, top =1, bottom =0.1, left = 0, right = 1)
